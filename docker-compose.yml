@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  blog-app:
+    container_name: blog-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'
