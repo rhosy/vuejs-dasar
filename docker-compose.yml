@@ -6,5 +6,19 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - '80:80'
+    #ports:
+    #  - '80:80'
+    environment:
+      # NGINX-PROXY ENVIRONMENT VARIABLES: UPDATE ME
+      - VIRTUAL_HOST=blog.khoirurrosy.my.id
+      - VIRTUAL_PORT=8081
+      - LETSENCRYPT_HOST=blog.khoirurrosy.my.id
+      - LETSENCRYPT_EMAIL=rhosy.tux@gmail.com
+      # /END NGINX-PROXY ENVIRONMENT VARIABLES
+    expose:
+      - 8081
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
